@@ -6,12 +6,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'no-default-value')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'no-default-valueherok')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'your-custom-domain.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['bittles-portfolio.herokuapp.com', 'bittles.dev', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -34,6 +34,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'portfolio/templates')],
+        'APP_DIRS': True,  # This is critical for the admin to work
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
 ]
 
 # Database config for Heroku
