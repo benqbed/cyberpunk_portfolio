@@ -11,7 +11,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'no-default-valueherok')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['bittles-portfolio.herokuapp.com', 'bittles.dev', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['bittles-portfolio-f6a1c83ab3b3.herokuapp.com', 'bittles.dev', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
