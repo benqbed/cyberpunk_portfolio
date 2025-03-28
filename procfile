@@ -1,0 +1,1 @@
+web: gunicorn cyberpunk_portfolio.wsgi --log-file -

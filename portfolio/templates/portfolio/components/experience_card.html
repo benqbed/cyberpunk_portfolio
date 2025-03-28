@@ -1,0 +1,20 @@
+<!-- portfolio/templates/portfolio/components/experience_card.html -->
+<div class="experience-item" data-aos="fade-up" data-experience-id="{{ experience.id }}">
+    <div class="time-point"></div>
+    <div class="cyberpunk-card experience-card">
+        {% if experience.logo %}
+        <div class="card-logo">
+            <img src="{{ experience.logo.url }}" alt="{{ experience.company }}">
+        </div>
+        {% endif %}
+        <div class="card-content">
+            <h3 class="card-title">{{ experience.position }}</h3>
+            <h4 class="card-subtitle">{{ experience.company }}</h4>
+            <p class="card-date">
+                {{ experience.start_date|date:"M Y" }} - {% if experience.current %}Present{% elif experience.end_date %}{{ experience.end_date|date:"M Y" }}{% endif %}
+            </p>
+            <p class="card-description short">{{ experience.description|truncatewords:20 }}</p>
+            <span class="card-view-more">View Details</span>
+        </div>
+    </div>
+</div>

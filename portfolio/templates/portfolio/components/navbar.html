@@ -1,0 +1,18 @@
+<!-- portfolio/templates/portfolio/components/navbar.html -->
+<nav class="cyberpunk-nav">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="#hero" class="glitch-text" data-text="{{ personal_info.name }}">{{ personal_info.name }}</a>
+        </div>
+        <div class="menu-toggle">
+            <div class="hamburger"></div>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="mailto:{{ personal_info.email }}" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+</nav>

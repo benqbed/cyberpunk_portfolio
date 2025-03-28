@@ -1,0 +1,17 @@
+<!-- portfolio/templates/portfolio/components/education_card.html -->
+<div class="cyberpunk-card education-card" data-aos="fade-up" data-education-id="{{ education.id }}">
+    {% if education.logo %}
+    <div class="card-logo">
+        <img src="{{ education.logo.url }}" alt="{{ education.institution }}">
+    </div>
+    {% endif %}
+    <div class="card-content">
+        <h3 class="card-title">{{ education.institution }}</h3>
+        <h4 class="card-subtitle">{{ education.degree }}</h4>
+        <p class="card-date">
+            {{ education.start_date|date:"M Y" }} - {% if education.end_date %}{{ education.end_date|date:"M Y" }}{% else %}Present{% endif %}
+        </p>
+        <p class="card-field">{{ education.field_of_study }}</p>
+        <span class="card-view-more">View Details</span>
+    </div>
+</div>

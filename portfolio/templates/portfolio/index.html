@@ -1,0 +1,91 @@
+<!-- portfolio/templates/portfolio/index.html -->
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% load portfolio_filters %}
+
+{% block title %}{{ personal_info.name }} | Portfolio{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="hero" class="cyberpunk-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-text">
+                <h1 class="glitch-text" data-text="{{ personal_info.name }}">{{ personal_info.name }}</h1>
+                <h2 class="cyberpunk-subtitle">{{ personal_info.title }}</h2>
+                <p class="cyberpunk-bio">{{ personal_info.bio }}</p>
+                <div class="cyberpunk-links">
+                    <a href="mailto:{{ personal_info.email }}" class="neon-button">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="{{ personal_info.linkedin }}" target="_blank" class="neon-button">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    {% if personal_info.github %}
+                    <a href="{{ personal_info.github }}" target="_blank" class="neon-button">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if personal_info.profile_image %}
+            <div class="hero-image">
+                <div class="cyberpunk-frame">
+                    <img src="{{ personal_info.profile_image.url }}" alt="{{ personal_info.name }}" class="profile-image">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="cyberpunk-section">
+        <h2 class="section-title glitch-text" data-text="Projects">Projects</h2>
+        <div class="cyberpunk-grid">
+            {% for project in projects %}
+                {% include 'portfolio/components/project_card.html' with project=project %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="cyberpunk-section">
+        <h2 class="section-title glitch-text" data-text="Experience">Experience</h2>
+        <div class="cyberpunk-timeline">
+            {% for exp in experience %}
+                {% include 'portfolio/components/experience_card.html' with experience=exp %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="cyberpunk-section">
+        <h2 class="section-title glitch-text" data-text="Education">Education</h2>
+        <div class="cyberpunk-grid">
+            {% for edu in education %}
+                {% include 'portfolio/components/education_card.html' with education=edu %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="cyberpunk-section">
+        <h2 class="section-title glitch-text" data-text="Skills">Skills</h2>
+        <div class="skills-container">
+            {% for skill in skills %}
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|multiply:100 }}">
+                {% if skill.icon %}
+                <i class="{{ skill.icon }}"></i>
+                {% endif %}
+                <span class="skill-name">{{ skill.name }}</span>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: {{ skill.proficiency|multiply:20 }}%"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

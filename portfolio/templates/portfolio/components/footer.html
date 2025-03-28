@@ -1,0 +1,20 @@
+<!-- portfolio/templates/portfolio/components/footer.html -->
+<footer class="cyberpunk-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="glitch-text" data-text="{{ personal_info.name }}">{{ personal_info.name }}</span>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:{{ personal_info.email }}"><i class="fas fa-envelope"></i></a>
+                <a href="{{ personal_info.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                {% if personal_info.github %}
+                <a href="{{ personal_info.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; {% now "Y" %} {{ personal_info.name }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
