@@ -3,6 +3,8 @@
     {% if education.logo %}
     <div class="card-logo">
         <img src="{{ education.logo.url }}" alt="{{ education.institution }}">
+        <!-- Debug info (remove in production) -->
+        <div style="display:none">Logo URL: {{ education.logo.url }} | Logo Path: {{ education.logo.path }}</div>
     </div>
     {% endif %}
     <div class="card-content">
